@@ -132,7 +132,12 @@ function phatDe()
         } else {
             echo $value . ' có ' . $trungBinh . ' sinh viên <br>';
             // hàm lấy ngẫu nhiên số phần tử của mảng
-            $arrNew = array_rand($sinhVien, $trungBinh);
+            $arrNew = [];
+            if ($trungBinh == 1) {
+                $arrNew[] = array_rand($sinhVien, $trungBinh);
+            } else {
+                $arrNew = array_rand($sinhVien, $trungBinh);
+            }
             // Duyệt mảng xóa các phần tử đã lấy được để tránh trùng lặp
             foreach ($arrNew as $valueIndex) {
                 $sinhVien[$valueIndex]['deThi'] = $value;
